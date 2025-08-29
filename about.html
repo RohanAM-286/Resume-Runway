@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About ResumeAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-purple-100 via-blue-50 to-pink-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-4 bg-white shadow sticky top-0 z-50">
+    <h1 class="text-xl font-bold text-gray-900">ResumeAI</h1>
+  </nav>
+
+  <!-- Hero About Section -->
+  <section class="text-center py-20">
+    <h2 class="text-4xl font-bold text-gray-900" data-aos="fade-up">
+      About <span class="text-blue-600">ResumeAI</span>
+    </h2>
+    <p class="mt-4 text-lg text-gray-600" data-aos="fade-up" data-aos-delay="100">
+      Empowering professionals to create standout resumes in minutes.
+    </p>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center" data-aos="fade-up">
+        Why Choose ResumeAI?
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-purple-50 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105" data-aos="fade-up">
+          <h3 class="text-xl font-semibold text-purple-600">Fast & Efficient</h3>
+          <p class="mt-2 text-gray-600">
+            Create a professional resume in minutes with AI-powered automation.
+          </p>
+        </div>
+        <div class="p-6 bg-blue-50 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold text-blue-600">AI-Powered</h3>
+          <p class="mt-2 text-gray-600">
+            Leveraging advanced language models to enhance your resume.
+          </p>
+        </div>
+        <div class="p-6 bg-pink-50 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold text-pink-600">Custom Templates</h3>
+          <p class="mt-2 text-gray-600">
+            Choose from modern, professional templates tailored to your style.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Illustrative Image at Bottom -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto">
+      <img src="images/about-banner.jpg" alt="About ResumeAI Illustration"
+           class="w-full h-96 object-cover shadow-xl" data-aos="fade-up">
+    </div>
+  </section>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResumeAI - AI Resume Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-purple-100 via-blue-50 to-pink-100 min-h-screen text-gray-800">
+
+
+  <nav class="flex justify-between items-center px-8 py-4 bg-white shadow sticky top-0 z-50">
+    <div class="flex items-center gap-4">
+      <h1 class="text-xl font-bold text-gray-900">ResumeAI</h1>
+ 
+      <span id="welcome-message" class="text-gray-700 font-medium"></span>
+    </div>
+    <ul class="flex gap-6 text-gray-700">
+      <li><a href="template.html" class="hover:text-blue-600">Templates</a></li>
+      <li><a href="about.html" class="hover:text-blue-600">About</a></li>
+      <li><a href="test.html" class="hover:text-blue-600">What's new</a></li>
+    </ul>
+  </nav>
+
+  <section class="text-center py-20">
+    <h2 class="text-4xl font-bold text-gray-900" data-aos="fade-up">
+      Build Your Resume with <span class="text-blue-600">Confidence</span>
+    </h2>
+    <p class="mt-4 text-lg text-gray-600" data-aos="fade-up" data-aos-delay="100">
+      Generate Beautiful Resume
+    </p>
+    <p class="mt-2 text-gray-500" data-aos="fade-up" data-aos-delay="200">
+      Create professional resumes in minutes. Smarter, faster, better.
+    </p>
+    <a href="Dash.html" class="mt-6 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
+      Try now
+    </a>
+  </section>
+
+  
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto text-center">
+      <img src="img1.jpg" alt="My Custom Resume Illustration" class="mx-auto rounded shadow">
+    </div>
+  </section>       
+
+  
+  <section id="about" class="py-16 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50">
+    <div class="max-w-5xl mx-auto text-center px-6">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8" data-aos="fade-up">Why Choose ResumeAI?</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up">
+          <h3 class="text-xl font-semibold text-purple-600">Fast & Efficient</h3>
+          <p class="mt-2 text-gray-600">
+            Build a professional resume in minutes using AI-powered automation.
+          </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold text-blue-600">AI-powered</h3>
+          <p class="mt-2 text-gray-600">
+            Uses LLM to enhance the resume.
+          </p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold text-pink-600">Customizable Templates</h3>
+          <p class="mt-2 text-gray-600">
+            Choose from a variety of modern, professional templates tailored to your style.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.name) {
+      document.getElementById("welcome-message").textContent = `Welcome back, ${user.name}!`;
+    }
+  </script>
+
+</body>
+</html>

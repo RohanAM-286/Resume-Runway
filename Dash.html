@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume Builder</title>
+<style>
+  body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f5ff; display: flex; flex-direction: column; height: 100vh; }
+  /* Navbar */
+  header { position: sticky; top: 0; background: white; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; }
+  header h1 { margin: 0; font-size: 1.5rem; color: #3b82f6; display: flex; align-items: center; gap: 0.5rem; }
+  header .nav-buttons button { margin-left: 1rem; padding: 0.5rem 1rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; transition: 0.3s; }
+  header .nav-buttons button:hover { background: #3b82f6; color: white; }
+
+  /* Layout */
+  .container { flex: 1; display: flex; overflow: hidden; }
+  .sidebar { width: 240px; background: white; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-top-right-radius: 30px; padding: 2rem 1.5rem; display: flex; flex-direction: column; }
+  .sidebar h2 { margin-bottom: 2rem; font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+  .sidebar button { background: transparent; border: none; margin-bottom: 1rem; font-weight: 600; font-size: 1rem; padding: 12px; border-radius: 12px; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; transition: all 0.3s ease; }
+  .sidebar button.active, .sidebar button:hover { background: linear-gradient(90deg, #3b82f6, #6366f1); color: white; }
+  .main { flex: 1; display: flex; padding: 2rem; overflow-y: auto; gap: 3rem; background: #f0f5ff; }
+
+  /* Forms */
+  .form-section { flex: 1; background: white; border-radius: 30px; padding: 2rem 3rem; box-shadow: 0 0 30px rgb(8 96 255 / 0.15); max-width: 700px; overflow-y: auto; display: none; transition: all 0.3s ease; }
+  .form-section.active { display: block; }
+  .form-section h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; text-align: center; }
+  .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  input[type="text"], input[type="email"], textarea { padding: 1rem; border-radius: 16px; border: 1.5px solid #d1d5db; font-size: 1rem; font-weight: 600; outline-offset: 2px; resize: none; font-family: inherit; }
+  input[type="text"]:focus, input[type="email"]:focus, textarea:focus { border-color: #3b82f6; box-shadow: 0 0 8px 0 #6366f1; }
+  textarea { grid-column: span 2; min-height: 120px; }
+
+  /* Preview */
+  .preview { width: 320px; background: white; padding: 2rem; border-radius: 30px; box-shadow: 0 0 20px rgba(156, 163, 175, 0.4); font-weight: 700; font-size: 1.1rem; height: fit-content; }
+  .preview-header { font-size: 1.3rem; font-weight: 700; color: #444; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1> Resume AI</h1>
+  <div class="nav-buttons">
+   <button onclick="window.location.href='index1.html'">&#8592; Dashboard</button>
+
+    <button onclick="alert('Preview clicked')">&#128065; Preview</button>
+    <button onclick="alert('Save Changes clicked')">&#128190; Save</button>
+    <button id="downloadPDF">&#128190; Download PDF</button>
+  </div>
+</header>
+
+
+
+
+<div class="container">
+  <nav class="sidebar">
+    
+    <button id="btnPersonalInfo" class="active">&#128100; Personal Info</button>
+    <button id="btnWorkExperience">&#128188; Work Experience</button>
+    <button id="btnEducation">&#127891; Education</button>
+    <button id="btnSkills">&#128640; Skills</button>
+    <button id="btnProjects">&#128293; Projects</button>
+  </nav>
+
+  <main class="main">
+    <!-- Personal Info Form -->
+    <section id="personalInfoForm" class="form-section active">
+      <h1>Personal Information</h1>
+      <div class="input-grid">
+        <input id="name" type="text" placeholder="Full Name" />
+        <input id="email" type="email" placeholder="Email Address" />
+        <input id="phone" type="text" placeholder="Phone Number" />
+        <input id="location" type="text" placeholder="Location" />
+        <input id="linkedin" type="text" placeholder="LinkedIn Profile" />
+        <input id="website" type="text" placeholder="Website/Portfolio" />
+        <textarea id="summary" placeholder="Professional Summary"></textarea>
+      </div>
+    </section>
+
+    <!-- Work Experience Form -->
+    <section id="workExperienceForm" class="form-section">
+      <h1>Work Experience</h1>
+      <textarea id="workExperience" placeholder="Enter your work experience here..."></textarea>
+    </section>
+
+    <!-- Education Form -->
+    <section id="educationForm" class="form-section">
+      <h1>Education</h1>
+      <textarea id="educationExperience" placeholder="Enter your education details here..."></textarea>
+    </section>
+
+    <!-- Skills Form -->
+    <section id="skillsForm" class="form-section">
+      <h1>Skills</h1>
+      <textarea id="skillsExperience" placeholder="List your skills..."></textarea>
+    </section>
+
+    <!-- Projects Form -->
+    <section id="projectsForm" class="form-section">
+      <h1>Projects</h1>
+      <textarea id="projectsExperience" placeholder="Describe your projects..."></textarea>
+    </section>
+
+    <!-- Live Preview -->
+    <section id="livePreview" class="preview">
+      <h2 class="preview-header">&#128065; Live Preview</h2>
+      <p><strong>Name: </strong><span id="previewName"></span></p>
+      <p><strong>Email: </strong><span id="previewEmail"></span></p>
+      <p><strong>Phone: </strong><span id="previewPhone"></span></p>
+      <p><strong>Location: </strong><span id="previewLocation"></span></p>
+      <p><strong>LinkedIn: </strong><span id="previewLinkedin"></span></p>
+      <p><strong>Website: </strong><span id="previewWebsite"></span></p>
+      <p><strong>Summary: </strong><span id="previewSummary"></span></p>
+      <p><strong>Work Experience: </strong><span id="previewWorkExperience"></span></p>
+      <p><strong>Education: </strong><span id="previewEducation"></span></p>
+      <p><strong>Skills: </strong><span id="previewSkills"></span></p>
+      <p><strong>Projects: </strong><span id="previewProjects"></span></p>
+    </section>
+  </main>
+</div>
+
+<!-- html2pdf.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+// Sidebar section toggle
+const sections = {
+  btnPersonalInfo: 'personalInfoForm',
+  btnWorkExperience: 'workExperienceForm',
+  btnEducation: 'educationForm',
+  btnSkills: 'skillsForm',
+  btnProjects: 'projectsForm'
+};
+
+Object.keys(sections).forEach(buttonId => {
+  document.getElementById(buttonId).addEventListener('click', () => {
+    Object.keys(sections).forEach(btn => document.getElementById(btn).classList.remove('active'));
+    document.getElementById(buttonId).classList.add('active');
+    Object.values(sections).forEach(sectionId => document.getElementById(sectionId).classList.remove('active'));
+    document.getElementById(sections[buttonId]).classList.add('active');
+  });
+});
+
+// Live preview updates
+const inputPreviewPairs = [
+  { input: "name", preview: "previewName", },
+  { input: "email", preview: "previewEmail", },
+  { input: "phone", preview: "previewPhone", },
+  { input: "location", preview: "previewLocation",  },
+  { input: "linkedin", preview: "previewLinkedin", },
+  { input: "website", preview: "previewWebsite",  },
+  { input: "summary", preview: "previewSummary",  },
+  { input: "workExperience", preview: "previewWorkExperience",  },
+  { input: "educationExperience", preview: "previewEducation", },
+  { input: "skillsExperience", preview: "previewSkills", },
+  { input: "projectsExperience", preview: "previewProjects", }
+];
+
+inputPreviewPairs.forEach(({ input, preview, defaultValue }) => {
+  const inputEl = document.getElementById(input);
+  const previewEl = document.getElementById(preview);
+  previewEl.textContent = defaultValue;
+  inputEl.addEventListener('input', () => {
+    previewEl.textContent = inputEl.value.trim() || defaultValue;
+  });
+});
+
+// Download PDF
+document.getElementById('downloadPDF').addEventListener('click', () => {
+  const element = document.getElementById('livePreview');
+  const opt = { margin:0.5, filename:'Resume.pdf', image:{ type:'jpeg', quality:0.98 }, html2canvas:{ scale:2 }, jsPDF:{ unit:'in', format:'letter', orientation:'portrait' } };
+  html2pdf().set(opt).from(element).save();
+});
+</script>
+</body>
+</html>
