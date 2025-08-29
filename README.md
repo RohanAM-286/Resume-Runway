@@ -1,5 +1,5 @@
-# Resume-Builder
-Resume Builder is a modern, responsive web application built with HTML and CSS that allows users to create professional resumes quickly and easily. It provides a clean, user-friendly interface and users can see a live preview of their resume and optionally download it as a PDF.
+# Resume-Runway
+Resume Runway is a modern, responsive web application built with HTML and CSS that allows users to create professional resumes quickly and easily. It provides a clean, user-friendly interface and users can see a live preview of their resume and optionally download it as a PDF.
 
 Preview:
 <img width="1564" height="765" alt="image" src="https://github.com/user-attachments/assets/430fb553-f36a-49b4-a519-ef3ab45bc0e9" />
